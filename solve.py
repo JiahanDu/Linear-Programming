@@ -46,7 +46,7 @@ def solve(A:np.ndarray, b:np.ndarray, c:np.ndarray):
         c=np.concatenate((c,np.zeros(len(b),dtype=np.float64)))
         vector=len(A[0])-len(A)+np.array(list(range(len(b))))
         ans=reduce(A,b,c,0,vector)
-        values=[0]*len(A[0])
+        values=[0.0]*len(A[0])
         for i in range(len(vector)):
             values[vector[i]]=b[i]
         return (ans,values[:len(A[0])-len(A)])
@@ -77,8 +77,7 @@ def solve(A:np.ndarray, b:np.ndarray, c:np.ndarray):
         A=np.delete(A,0,axis=1)
         c=extra_1[1:]
         ans=reduce(A,b,c,extra_2[0],vector)
-        values=[0]*len(A[0])
+        values=[0.0]*len(A[0])
         for i in range(len(vector)):
             values[vector[i]]=b[i]
         return (ans,values[:len(A[0])-len(A)])
-
